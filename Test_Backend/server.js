@@ -1,5 +1,6 @@
 var express = require("express");
 const mongoose = require("mongoose");
+const env = require("dotenv").config({ path: "./.env" });
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("./models/user");
@@ -32,3 +33,9 @@ app.use("/api", routerUser);
 app.use("/api", routerTodo);
 app.use("/api", routerAuth);
 /* END  ROUTES */
+// stripe routes
+app.get("/config", (req, res) => {
+  res.send({
+    publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+  });
+});

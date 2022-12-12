@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import DatePicker from "react-date-picker";
-import Select from "react-select";
 
 const AddTodo = () => {
   const history = useNavigate();
@@ -13,10 +12,7 @@ const AddTodo = () => {
   const [created_at, setCreated_at] = useState(new Date());
   const [finished_at, setFinished_at] = useState(new Date());
   // const [updated_at, setUpdated_at] = useState(new Date());
-  const options = [
-    { value: true, label: "Oui" },
-    { value: false, label: "Non" },
-  ];
+
   const changeFinished = () => {
     setFinished(!finished);
   };
